@@ -1,0 +1,54 @@
+<p>calendar works!</p>
+
+<br>
+<br>
+<button (click)="findByWord()">Пошук за словом</button>
+<input type="text" [(ngModel)]="wordField">
+<br>
+<br>
+<button (click)="findById()">Пошук за id</button>
+<input type="text" [(ngModel)]="idField">
+<br>
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th style="border: 1px solid #000; display: table-cell; width: 70px; height: 50px; vertical-align: middle;">Id</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 150px; height: 50px; vertical-align: middle;">Text</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 100px; height: 50px; vertical-align: middle;">Time</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 150px; height: 50px; vertical-align: middle;">Description</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 50px; height: 50px; vertical-align: middle;">Frequency</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 50px; height: 50px; vertical-align: middle;">Додати</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 50px; height: 50px; vertical-align: middle;">Оновити</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 50px; height: 50px; vertical-align: middle;">Закрити</th>
+            <th style="border: 1px solid #000; display: table-cell; width: 50px; height: 50px; vertical-align: middle;">Видалити</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let calendar of calendars">
+            <td style="border: 1px solid #000; display: table-cell; width: 50px; height: 50px; vertical-align: middle; text-align: center;">{{calendar.id}}</td>
+            <td style="border: 1px solid #000; display: table-cell; width: 150px; height: 50px; vertical-align: middle; text-align: center;">{{calendar.text}}</td>
+            <td style="border: 1px solid #000; display: table-cell; width: 100px; height: 50px; vertical-align: middle; text-align: center;">{{calendar.time}}</td>
+            <td style="border: 1px solid #000; display: table-cell; width: 150px; height: 50px; vertical-align: middle; text-align: center;">{{calendar.description}}</td>
+            <td style="border: 1px solid #000; display: table-cell; width: 70px; height: 50px; vertical-align: middle; text-align: center;">{{calendar.frequency}}</td>
+            <td style="border: 1px solid #000; display: table-cell; width: 70px; height: 50px; vertical-align: middle; text-align: center;">
+                <button (click)="addCalendar()">Додати</button>
+            </td>
+            <td style="border: 1px solid #000; display: table-cell; width: 70px; height: 50px; vertical-align: middle; text-align: center;">
+                <button (click)="update(calendar)">Оновити</button>
+            </td>
+            <td style="border: 1px solid #000; display: table-cell; width: 70px; height: 50px; vertical-align: middle; text-align: center;">
+                <button (click)="delete(calendar)">Видалити</button>
+            </td>
+            <td style="border: 1px solid #000; display: table-cell; width: 70px; height: 50px; vertical-align: middle; text-align: center;">
+                <button (click)="close()">Закрити</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<app-adding-calendar [calendar]="calendar" *ngIf="isPressButton"></app-adding-calendar>

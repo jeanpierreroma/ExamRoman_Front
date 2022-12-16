@@ -1,0 +1,21 @@
+<p>adding-calendar works!</p>
+
+<div>
+    <label>Text</label>
+    <input type="text" [(ngModel)]="text">
+
+    <label>Time</label>
+    <input type="text" [(ngModel)]="time">
+
+    <label>Description</label>
+    <input type="text" [(ngModel)]="description">
+
+    <label>Frequency</label>
+    <input type="number" [(ngModel)]="frequency" >
+
+    <!-- <label>tmp</label>
+    <input type="text" [(ngModel)]="tmp"> -->
+</div>
+
+<button (click)="addButtonInForm()" *ngIf="calendar.id == 0">Додати</button>
+<button (click)="updateButtonInForm()" *ngIf="calendar.id != 0">Оновити</button>
